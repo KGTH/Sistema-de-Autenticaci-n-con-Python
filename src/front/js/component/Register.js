@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Register = () => {
   const [data, setData] = useState({});
+  const navigate= useNavigate();
 
   const submit = (event) => {
     event.preventDefault();
@@ -16,7 +18,12 @@ const Register = () => {
     };
     fetch(process.env.BACKEND_URL + "/api/signup", option)
       .then((response) => {
-        response.json;
+        if(response.status==200){
+            navigate("/login")
+        }else{
+            alert("Error ")
+        }
+        response.json();
       })
       .then((response) => {
         console.log(response);
@@ -73,12 +80,7 @@ const Register = () => {
           </div>
 
           <div className="col-12 mb-3 ">
-            <button
-              type="reset"
-              className="btn btn-light"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
+            <button type="reset" className="btn btn-light" onClick={submit}>
               Enviar
             </button>
           </div>
