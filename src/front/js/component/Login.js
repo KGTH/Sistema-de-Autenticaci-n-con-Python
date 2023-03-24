@@ -25,9 +25,10 @@ const Login=()=>{
     };
     fetch(process.env.BACKEND_URL + "/api/login", optionLogin)
     .then((response)=>{
-      response.json();
+   
       if(response.status==200){
-        navigate("/privada_user")
+        return response.json();
+       
       }else { 
         alert("correo o contraseña incorrecta")
       }
@@ -35,8 +36,8 @@ const Login=()=>{
     })
     .then((response)=>{
       console.log(response)
-      localStorage.setItem("token", response.token);
-      
+      localStorage.setItem("token", response.token)
+      navigate("/privada_user")
     })
 
   }

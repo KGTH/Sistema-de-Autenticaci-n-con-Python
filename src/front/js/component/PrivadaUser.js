@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
 
 const PrivadaUser = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser]= useState ([]);
 
-  useEffect(() => {
-    const optionPrivada = {
-      headers: {
-        "Content-Type": "application/json",
-        'Authorization':'Bearer '+ localStorage.getItem('token')
-      },
-    };
-    fetch(process.env.BACKEND_URL + "/api/private", optionPrivada)
-      .then((response) => {
-        return response.json();
+  useEffect(()=>{
+    
+      const optionsUser={
+        headers:{
+          "Content-Type": "application/json",
+          'Authorization':'Bearer '+ localStorage.getItem('token')
+        }
+        }
+      fetch(process.env.BACKEND_URL+ "/api/private" , optionsUser)
+      .then((response)=>{
+          return response.json()
       })
-      .then((response) => {
-        setUser(response);
-      });
-  }, []);
+      .then ((response)=>{
+          setUser(response)
+      })
+    
+  },[])
+
 
   return (
     <>
