@@ -41,14 +41,13 @@ def login():
     
     return jsonify({"msg": "Wrong user/password"}), 400
 
-@api.route('/private', methods=['GET'])
-@jwt_required() 
-def private():
+
+@api.route('/private', methods=['GET']) # se obtiene usuario por id 
+@jwt_required()
+def get_user():
     user_id= get_jwt_identity()
-    user = User.query.filter_by(id=user_id).first()
-    if user :
+    user= User.query.filter_by(id=user_id).first()
+    if user : 
         return jsonify(user.serialize()),200
     
-    return jsonify({"doesn´t exist"}),400
-
-    #pendiente de terminar
+    return jsonify({"Doesn´t exist"})
