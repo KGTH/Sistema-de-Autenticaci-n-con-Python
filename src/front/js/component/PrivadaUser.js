@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 
+
+
 const PrivadaUser = () => {
   const [user, setUser]= useState ([]);
-
+ 
   useEffect(()=>{
     
       const optionsUser={
@@ -21,15 +23,22 @@ const PrivadaUser = () => {
     
   },[])
 
+  
 
   return (
     <>
-      <div className="container col-md-6">
-        <p className="fs-3 fst-italic">
-          Bienvienido a tu area privada,{user.name}
+      <div className="container ">
+        <p className="fs-3 fst-italic text-center">
+          Bienvienido a tu area privada
         </p>
+        <p>Nombre : {user.name}</p>
+        <p>Email: {user.email}</p>
+        <div className="square col-md-6">
+        <img src="https://www.muycomputerpro.com/wp-content/uploads/2021/09/lenguajes-programacion-populares-2021.jpg"></img>
 
-        <p></p>
+        </div>
+       
+       
       </div>
     </>
   );
