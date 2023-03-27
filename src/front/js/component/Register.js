@@ -87,7 +87,7 @@ const Register = () => {
         </div>
         <div className="container">
           <Link className="btn btn-danger" to="/">
-            Regresar home
+            Regresar
           </Link>
         </div>
       </form>

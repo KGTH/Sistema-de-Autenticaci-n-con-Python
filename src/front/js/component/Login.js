@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login=()=>{
 
@@ -88,8 +89,14 @@ return(
             Enviar
           </button>
         </div>
+        
+        
       </div>
-      
+      <div className="container">
+          <Link className="btn btn-danger" to="/">
+            Regresar
+          </Link>
+        </div>
     </form>
 
 )
